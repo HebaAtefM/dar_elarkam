@@ -78,101 +78,99 @@ width: MediaQuery.of(context).size.width,
                 )
               ),),
 
-              Container(
-                color: Color(0xffFFFFFF),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Align(
-                      alignment: Alignment.topRight,
-                        child: CustomAppBar()),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.all(30.0),
-                        child: PageView.builder(
-                          physics: BouncingScrollPhysics(),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Align(
+                    alignment: Alignment.topRight,
+                      child: CustomAppBar()),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(30.0),
+                      child: PageView.builder(
+                        physics: BouncingScrollPhysics(),
 
-                          onPageChanged: (i)
-                          {
-                            setState(() {
-                              currentpage=i;
-                            });
+                        onPageChanged: (i)
+                        {
+                          setState(() {
+                            currentpage=i;
+                          });
 
 
-                          },
-                          controller: controller,
-                          itemCount: list.length,
-                          itemBuilder: (ctx, i) => Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: <Widget>[
-                              Expanded(
-                                child: Image(
-                                  image: AssetImage(
-                                    list[i].image,
-                                  ),
-                                ),
-                              ),
-                              SizedBox(height: 30),
-                              Text(
-                                list[i].title,
-                                style: TextStyle(
-                                  fontSize: 24.0,
-
-                                ),
-                              ),
-                              SizedBox(height: 15.0),
-                              Text(
-                                list[i].body,
-                                textAlign: TextAlign.center,
-                               // overflow: TextOverflow.ellipsis,
-
-
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    if(currentpage==0)
-                      Padding(
-                        padding: const EdgeInsets.all(30.0),
-                        child: Row(
-                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        },
+                        controller: controller,
+                        itemCount: list.length,
+                        itemBuilder: (ctx, i) => Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
-
-
-
-                              Center(
-                                child: SmoothPageIndicator(
-                                  controller: controller,
-                                  effect: ExpandingDotsEffect(
-                                    dotColor: Colors.grey,
-                                    activeDotColor: Colors.blue,
-                                    dotHeight: 8,
-                                    expansionFactor: 3,
-                                    dotWidth: 8,
-                                    spacing: 5.0,
-                                  ),
-                                  count: list.length,
+                            Expanded(
+                              child: Image(
+                                image: AssetImage(
+                                  list[i].image,
                                 ),
                               ),
+                            ),
+                            SizedBox(height: 30),
+                            Text(
+                              list[i].title,
+                              style: TextStyle(
+                                fontSize: 24.0,
 
-                            SizedBox(width: 50,),
-                            TextButton(
-                                onPressed: () {
-                                  controller.nextPage( duration: Duration(milliseconds: 30), curve:Curves.bounceIn);
+                              ),
+                            ),
+                            SizedBox(height: 15.0),
+                            Text(
+                              list[i].body,
+                              textAlign: TextAlign.center,
+                             // overflow: TextOverflow.ellipsis,
 
-                                },
-                                child: Text(
-                                  "التالي", style: TextStyle(color:  Colors.blue,fontSize: 19),)
+
                             ),
                           ],
                         ),
-                      )
+                      ),
+                    ),
+                  ),
+                  if(currentpage==0)
+                    Padding(
+                      padding: const EdgeInsets.all(30.0),
+                      child: Row(
+                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+
+
+
+                            Center(
+                              child: SmoothPageIndicator(
+                                controller: controller,
+                                effect: ExpandingDotsEffect(
+                                  dotColor: Colors.grey,
+                                  activeDotColor: Colors.blue,
+                                  dotHeight: 8,
+                                  expansionFactor: 3,
+                                  dotWidth: 8,
+                                  spacing: 5.0,
+                                ),
+                                count: list.length,
+                              ),
+                            ),
+
+                          SizedBox(width: 50,),
+                          TextButton(
+                              onPressed: () {
+                                controller.nextPage( duration: Duration(milliseconds: 30), curve:Curves.bounceIn);
+
+                              },
+                              child: Text(
+                                "التالي", style: TextStyle(color:  Colors.blue,fontSize: 19),)
+                          ),
+                        ],
+                      ),
+                    )
     else if( currentpage==1)
     Padding(
     padding: const EdgeInsets.all(30.0),
@@ -221,36 +219,36 @@ width: MediaQuery.of(context).size.width,
     )
 
 
-                     else
-                      Padding(
-                        padding: const EdgeInsets.all(30.0),
-                        child: Column(
-                         // mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: <Widget>[
+                   else
+                    Padding(
+                      padding: const EdgeInsets.all(30.0),
+                      child: Column(
+                       // mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: <Widget>[
 
 
-                            Center(
-                              child: SmoothPageIndicator(
-                                controller: controller,
-                                effect: ExpandingDotsEffect(
-                                  dotColor: Colors.grey,
-                                  activeDotColor: Colors.blue,
-                                  dotHeight: 8,
-                                  expansionFactor: 3,
-                                  dotWidth: 8,
-                                  spacing: 5.0,
-                                ),
-                                count: list.length,
+                          Center(
+                            child: SmoothPageIndicator(
+                              controller: controller,
+                              effect: ExpandingDotsEffect(
+                                dotColor: Colors.grey,
+                                activeDotColor: Colors.blue,
+                                dotHeight: 8,
+                                expansionFactor: 3,
+                                dotWidth: 8,
+                                spacing: 5.0,
                               ),
+                              count: list.length,
                             ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            GestureDetector(
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          GestureDetector(
     onTap: (){
     GoRouter.of(context).push('/home');
     },
-                              child: Container(
+                            child: Container(
     width: 180,
 height: 55,
 decoration:   BoxDecoration(
@@ -259,17 +257,29 @@ decoration:   BoxDecoration(
 
 ),
 
-                                  child: Center(child: Text("البدأ الان",style: TextStyle(fontSize: 16,color: Colors.white),))),
-                            )
-                          ],
-                        ),
+                                child: Center(child: Text("البدأ الان",style: TextStyle(fontSize: 16,color: Colors.white),))),
+                          )
+                        ],
                       ),
+                    ),
+
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Center(
+                    child: Container(
+                      width: 100,
+                      height: 5,
+                      decoration: BoxDecoration(
+color: Colors.black
+                      ),
+                    ),
+                  )
 
 
 
-                  ],
+                ],
 
-                ),
               ),
 
             ],
