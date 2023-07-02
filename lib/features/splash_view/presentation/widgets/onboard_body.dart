@@ -50,10 +50,8 @@ class _OnBoardBodyState extends State<OnBoardBody> {
     ];
   }
 
-  var isLast = false;
-  var isfirst=true;
   final controller = PageController();
-
+int currentpage=0;
   void submit()
   {
     GoRouter.of(context).push('/home');
@@ -100,24 +98,9 @@ width: MediaQuery.of(context).size.width,
 
                           onPageChanged: (i)
                           {
-                            if (
-                            i == list.length - 1&&!isLast &&isfirst
-
-                               )
-
-                              setState(() {
-                                isLast = true;
-                                isfirst=false;
-
-                              });
-                            else if (isLast &&!isfirst ) {
-                              setState(() {
-                                isLast = false;
-                                isfirst=false;
-
-                              });
-
-                           }
+                            setState(() {
+                              currentpage=i;
+                            });
 
 
                           },
@@ -154,24 +137,12 @@ width: MediaQuery.of(context).size.width,
                         ),
                       ),
                     ),
-                    if(!isLast&&isfirst)
+                    if(currentpage==0)
                       Padding(
                         padding: const EdgeInsets.all(30.0),
                         child: Row(
                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
-
-
-    // TextButton(
-    // onPressed: () {
-    // controller.page==0?(){
-    // controller.previousPage( duration: Duration(milliseconds: 30), curve:Curves.bounceIn);}
-    // :null;
-    //  } ,
-    // child: Text(
-    // "السابق", style: TextStyle(color: Colors.grey,fontSize: 19),)
-    // ),
-
 
 
 
@@ -193,25 +164,8 @@ width: MediaQuery.of(context).size.width,
                             SizedBox(width: 50,),
                             TextButton(
                                 onPressed: () {
-                                  controller.page==2?
-                                      (){
-GoRouter.of(context).push('/home');
+                                  controller.nextPage( duration: Duration(milliseconds: 30), curve:Curves.bounceIn);
 
-
-// controller.animateToPage(list.length+1,
-                                    //     duration: Duration(milliseconds: 30), curve:Curves.bounceIn);
-                                    // setState(() {
-                                    //
-                                    // });
-                                  }
-                                  :
-                                   controller.nextPage( duration: Duration(milliseconds: 30), curve:Curves.bounceIn);
-
-                                  // if (isLast) {
-                                  //   submit();
-                                  // } else {
-                                  //   controller.nextPage(duration: Duration(milliseconds: 30), curve:Curves.bounceIn);
-                                  // }
                                 },
                                 child: Text(
                                   "التالي", style: TextStyle(color:  Colors.blue,fontSize: 19),)
@@ -219,7 +173,7 @@ GoRouter.of(context).push('/home');
                           ],
                         ),
                       )
-    else if( !isLast &&!isfirst)
+    else if( currentpage==1)
     Padding(
     padding: const EdgeInsets.all(30.0),
     child: Row(
@@ -229,10 +183,11 @@ GoRouter.of(context).push('/home');
 
     TextButton(
     onPressed: () {
-    controller.page==0?(){
-    controller.previousPage( duration: Duration(milliseconds: 30), curve:Curves.bounceIn);}
-        :null;
-    } ,
+    controller.previousPage( duration: Duration(milliseconds: 30), curve:Curves.bounceIn);
+
+
+    },
+
     child: Text(
     "السابق", style: TextStyle(color: Colors.grey,fontSize: 19),)
     ),
@@ -254,25 +209,9 @@ GoRouter.of(context).push('/home');
     ),
     TextButton(
     onPressed: () {
-    controller.page==2?
-    (){
-    GoRouter.of(context).push('/home');
+      controller.nextPage( duration: Duration(milliseconds: 30), curve:Curves.bounceIn);
 
 
-// controller.animateToPage(list.length+1,
-    //     duration: Duration(milliseconds: 30), curve:Curves.bounceIn);
-    // setState(() {
-    //
-    // });
-    }
-        :
-    controller.nextPage( duration: Duration(milliseconds: 30), curve:Curves.bounceIn);
-
-    // if (isLast) {
-    //   submit();
-    // } else {
-    //   controller.nextPage(duration: Duration(milliseconds: 30), curve:Curves.bounceIn);
-    // }
     },
     child: Text(
     "التالي", style: TextStyle(color: Colors.blue,fontSize: 19),)
