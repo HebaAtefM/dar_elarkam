@@ -12,6 +12,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      theme: ThemeData(
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+            selectedLabelStyle:TextStyle(
+              color: Colors.black,
+              fontSize: 8,
+
+            ),
+          unselectedLabelStyle: TextStyle(color: Colors.black,fontSize: 8),
+          showSelectedLabels: true,
+          showUnselectedLabels: true
+        )
+      ),
         routerConfig: AppRoute.router,
         debugShowCheckedModeBanner: false,
     );

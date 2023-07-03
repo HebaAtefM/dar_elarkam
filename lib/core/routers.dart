@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:myapp/features/splash_view/presentation/pages/homeview.dart';
+import 'package:myapp/features/home_view/home_presentation/home_pages/homeview.dart';
 import 'package:myapp/features/splash_view/presentation/pages/on_boarding_screen.dart';
 import 'package:myapp/features/splash_view/presentation/pages/splash_screen.dart';
 

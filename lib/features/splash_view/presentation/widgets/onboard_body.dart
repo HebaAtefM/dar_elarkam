@@ -3,7 +3,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:myapp/features/splash_view/presentation/pages/homeview.dart';
+import 'package:myapp/features/home_view/home_presentation/home_pages/homeview.dart';
 import 'package:myapp/features/splash_view/presentation/widgets/custom_app_bar.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 class BoardModel
@@ -73,213 +73,161 @@ width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
             //color: Colors.grey,
                 image: DecorationImage(image: AssetImage("assets/images/bg.png",),
+                  fit: BoxFit.fill
 
 
                 )
               ),),
 
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Align(
-                    alignment: Alignment.topRight,
-                      child: CustomAppBar()),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.all(30.0),
-                      child: PageView.builder(
-                        physics: BouncingScrollPhysics(),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                //  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Align(
+                      alignment: Alignment.topRight,
+                        child: CustomAppBar()),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: PageView.builder(
+                          physics: BouncingScrollPhysics(),
 
-                        onPageChanged: (i)
-                        {
-                          setState(() {
-                            currentpage=i;
-                          });
+                          onPageChanged: (i)
+                          {
+                            setState(() {
+                              currentpage=i;
+                            });
 
 
-                        },
-                        controller: controller,
-                        itemCount: list.length,
-                        itemBuilder: (ctx, i) => Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
-                            Expanded(
-                              child: Image(
+                          },
+                          controller: controller,
+                          itemCount: list.length,
+                          itemBuilder: (ctx, i) => Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              Image(
+
                                 image: AssetImage(
                                   list[i].image,
+
                                 ),
                               ),
-                            ),
-                            SizedBox(height: 30),
-                            Text(
-                              list[i].title,
-                              style: TextStyle(
-                                fontSize: 24.0,
+                              SizedBox(height: 30),
+                              Text(
+                                list[i].title,
+                                style: TextStyle(
+                                  fontSize: 24.0,
+
+                                ),
+                              ),
+                              SizedBox(height: 20.0),
+                              Text(
+                                list[i].body,
+                                textAlign: TextAlign.center,
+                               // overflow: TextOverflow.ellipsis,
+
 
                               ),
-                            ),
-                            SizedBox(height: 15.0),
-                            Text(
-                              list[i].body,
-                              textAlign: TextAlign.center,
-                             // overflow: TextOverflow.ellipsis,
-
-
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  if(currentpage==0)
-                    Padding(
-                      padding: const EdgeInsets.all(30.0),
-                      child: Row(
-                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
 
 
-
-                            Center(
-                              child: SmoothPageIndicator(
-                                controller: controller,
-                                effect: ExpandingDotsEffect(
-                                  dotColor: Colors.grey,
-                                  activeDotColor: Colors.blue,
-                                  dotHeight: 8,
-                                  expansionFactor: 3,
-                                  dotWidth: 8,
-                                  spacing: 5.0,
-                                ),
-                                count: list.length,
-                              ),
-                            ),
-
-                          SizedBox(width: 50,),
-                          TextButton(
-                              onPressed: () {
-                                controller.nextPage( duration: Duration(milliseconds: 30), curve:Curves.bounceIn);
-
-                              },
-                              child: Text(
-                                "التالي", style: TextStyle(color:  Colors.blue,fontSize: 19),)
-                          ),
-                        ],
-                      ),
-                    )
-    else if( currentpage==1)
-    Padding(
-    padding: const EdgeInsets.all(30.0),
-    child: Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: <Widget>[
+      TextButton(
+          onPressed: () {
+            controller.previousPage( duration: Duration(milliseconds: 30), curve:Curves.bounceIn);
 
 
-    TextButton(
-    onPressed: () {
-    controller.previousPage( duration: Duration(milliseconds: 30), curve:Curves.bounceIn);
+          },
+          child: Text(
+          currentpage==1 ? "السابق":"", style: TextStyle(color: Colors.grey,fontSize: 19),)
+      ),
+
+     Column(
+       mainAxisAlignment: MainAxisAlignment.center,
+       children: [
+         SmoothPageIndicator(
+         controller: controller,
+         effect: ExpandingDotsEffect(
+
+         dotColor: Colors.grey,
+         activeDotColor: Colors.blue,
+         dotHeight: 5,
+         expansionFactor: 3,
+         dotWidth: 5,
+         spacing: 5.0,
+         ),
+         count: list.length,
+         ),
+         SizedBox(height: 10,),
+         currentpage==2?
+         Center(
+           child: GestureDetector(
+             onTap: (){
+                 GoRouter.of(context).push('/home');
+             },
+             child: Container(
+                   width: 180,
+                   height: 55,
+                   decoration:   BoxDecoration(
+                     borderRadius: BorderRadius.circular(12),
+                     color: Colors.blue
+
+                   ),
+
+                   child: Center(child: Text("البدأ الان",style: TextStyle(fontSize: 16,color: Colors.white),))),
+           ),
+         ):Text(""),
+       ],
+     ),
+       currentpage==2?Text(""):  TextButton(
+           onPressed: () {
+             controller.nextPage( duration: Duration(milliseconds: 30), curve:Curves.bounceIn);
 
 
-    },
+           },
 
-    child: Text(
-    "السابق", style: TextStyle(color: Colors.grey,fontSize: 19),)
-    ),
-
-
-    Center(
-    child: SmoothPageIndicator(
-    controller: controller,
-    effect: ExpandingDotsEffect(
-    dotColor: Colors.grey,
-    activeDotColor: Colors.blue,
-    dotHeight: 8,
-    expansionFactor: 3,
-    dotWidth: 8,
-    spacing: 5.0,
-    ),
-    count: list.length,
-    ),
-    ),
-    TextButton(
-    onPressed: () {
-      controller.nextPage( duration: Duration(milliseconds: 30), curve:Curves.bounceIn);
+           child: Text(
+             "التالي", style: TextStyle(color: Colors.blue,fontSize: 19),)
+       ),
 
 
-    },
-    child: Text(
-    "التالي", style: TextStyle(color: Colors.blue,fontSize: 19),)
-    ),
+
+
+
     ],
     ),
-    )
 
 
-                   else
-                    Padding(
-                      padding: const EdgeInsets.all(30.0),
-                      child: Column(
-                       // mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: <Widget>[
 
-
-                          Center(
-                            child: SmoothPageIndicator(
-                              controller: controller,
-                              effect: ExpandingDotsEffect(
-                                dotColor: Colors.grey,
-                                activeDotColor: Colors.blue,
-                                dotHeight: 8,
-                                expansionFactor: 3,
-                                dotWidth: 8,
-                                spacing: 5.0,
-                              ),
-                              count: list.length,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          GestureDetector(
-    onTap: (){
-    GoRouter.of(context).push('/home');
-    },
-                            child: Container(
-    width: 180,
-height: 55,
-decoration:   BoxDecoration(
-  borderRadius: BorderRadius.circular(12),
-  color: Colors.blue
-
-),
-
-                                child: Center(child: Text("البدأ الان",style: TextStyle(fontSize: 16,color: Colors.white),))),
-                          )
-                        ],
-                      ),
+                    SizedBox(
+                      height: 10,
                     ),
-
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Center(
-                    child: Container(
-                      width: 100,
-                      height: 5,
-                      decoration: BoxDecoration(
+                    Center(
+                      child: Container(
+                        width: 100,
+                        height: 5,
+                        decoration: BoxDecoration(
 color: Colors.black
+                        ),
                       ),
-                    ),
-                  )
+                    )
 
 
 
-                ],
+                  ],
 
+                ),
               ),
 
             ],
