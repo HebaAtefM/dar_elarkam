@@ -41,6 +41,10 @@ class _HomeViewState extends State<HomeView> {
 type: BottomNavigationBarType.fixed,
           selectedItemColor: Colors.blue,
 unselectedItemColor: Colors.black,
+
+selectedIconTheme: IconThemeData(
+  color: Colors.blue,
+),
 backgroundColor: Colors.white,
           items: [
           BottomNavigationBarItem

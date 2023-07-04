@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/core/routers.dart';
+import 'package:myapp/core/themedata.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,18 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      theme: ThemeData(
-        bottomNavigationBarTheme: BottomNavigationBarThemeData(
-            selectedLabelStyle:TextStyle(
-              color: Colors.black,
-              fontSize: 8,
-
-            ),
-          unselectedLabelStyle: TextStyle(color: Colors.black,fontSize: 8),
-          showSelectedLabels: true,
-          showUnselectedLabels: true
-        )
-      ),
+      theme: themeData,
         routerConfig: AppRoute.router,
         debugShowCheckedModeBanner: false,
     );
