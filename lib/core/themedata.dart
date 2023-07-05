@@ -12,6 +12,9 @@ fontSize: 8,
 
 ),
 unselectedLabelStyle: TextStyle(color: Colors.black,fontSize: 8),
+unselectedIconTheme: IconThemeData(
+  color: Colors.blue
+),
 showSelectedLabels: true,
 showUnselectedLabels: true
 )
