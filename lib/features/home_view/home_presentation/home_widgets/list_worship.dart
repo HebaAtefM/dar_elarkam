@@ -30,7 +30,7 @@ class ListWorship extends StatelessWidget {
       height:   MediaQuery
           .of(context)
           .size
-          .height * .25,
+          .height * .22,
       child: ListView.builder(
           itemCount: 3,
           scrollDirection: Axis.horizontal,

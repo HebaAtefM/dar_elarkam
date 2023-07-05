@@ -21,7 +21,7 @@ class CustomlistView extends StatelessWidget {
 
         Container(
           width: 414,
-          height: 434,
+          height: 365,
           decoration: BoxDecoration(
             color: Color(0xff6054FF).withOpacity(.6),
             borderRadius: BorderRadius.only(
@@ -33,9 +33,9 @@ class CustomlistView extends StatelessWidget {
           ),
           child: Column(
             children: [
-              SizedBox(height: 30,),
+              SizedBox(height: 10,),
               CustomAppBarHome(),
-              SizedBox(height: 30,),
+              SizedBox(height: 10,),
               CustomListView(),
 
               SizedBox(height: 10,),

@@ -26,7 +26,7 @@ class CustomListView extends StatelessWidget {
       height: MediaQuery
           .of(context)
           .size
-          .height * .18,
+          .height * .17,
 
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -47,7 +47,7 @@ class CustomListView extends StatelessWidget {
                   children: [
 
                     CircleAvatar(
-                        radius: 37,
+                        radius: 35,
                         backgroundColor: Colors.white,
                         child:Image.asset(images[index].assetName  )),
                     SizedBox(height: 5,),
