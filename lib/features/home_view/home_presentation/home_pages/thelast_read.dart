@@ -46,7 +46,7 @@ class TheLastRead extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
                     children: [
-                      Text("اكملالقراءه",style: TextStyle(fontSize: 14,color: Color(0xff3E3E46)),),
+                      Text("اكمل اللقراءه",style: TextStyle(fontSize: 14,color: Color(0xff3E3E46)),),
                       Icon(Icons.arrow_forward_sharp)
 
 

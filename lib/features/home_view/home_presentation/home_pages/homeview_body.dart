@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/features/home_view/home_presentation/home_pages/grid_video.dart';
 import 'package:myapp/features/home_view/home_presentation/home_pages/thelast_read.dart';
 import 'package:myapp/features/home_view/home_presentation/home_pages/theprayer.dart';
 import 'package:myapp/features/home_view/home_presentation/home_widgets/customgridview.dart';
@@ -42,32 +43,7 @@ Text("العلم الشرعي",style: TextStyle(fontSize: 19,color: Color(0xff02
 
                   ),
                 ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: SizedBox(
-                  height: MediaQuery.of(context).size.height*.35,
-                  child: GridView.builder(
-                      itemCount: 8,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 4,
-                      childAspectRatio: 2/3,
-                      crossAxisSpacing: 5,
-                      mainAxisSpacing: 5
-                  ),
-                      itemBuilder:(context,index){
-return Container(
-
-    width: 145,
-    height: 110,
-    decoration: BoxDecoration(
-      color: Colors.blue,
-      borderRadius: BorderRadius.circular(8),
-    ),
-
-    child:Text("hhhhhhhh"));
-                      }),
-                ),
-              )
+              GridVideo(),
 
 
 
