@@ -50,6 +50,7 @@ dependencies:
   freezed_annotation:
   webview_flutter: ^4.2.0
   smooth_page_indicator:
+  percent_indicator:
 
 
 

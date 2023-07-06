@@ -28,45 +28,44 @@ class CustomListView extends StatelessWidget {
           .size
           .height * .17,
 
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: ListView.builder(
+      child: ListView.builder(
+padding: EdgeInsets.symmetric(vertical: 8),
+        shrinkWrap: true,
+        itemCount: 4,
 
-          shrinkWrap: true,
-          itemCount: 4,
+        physics: BouncingScrollPhysics(),
+        scrollDirection: Axis.horizontal,
+        //clipBehavior:Clip.none,
 
-          physics: BouncingScrollPhysics(),
-          scrollDirection: Axis.horizontal,
-          //clipBehavior:Clip.none,
+        itemBuilder: (context,index){
+          return GestureDetector(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 6.0),
+              child: Column(
+                children: [
 
-          itemBuilder: (context,index){
-            return GestureDetector(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 6.0),
-                child: Column(
-                  children: [
+                  CircleAvatar(
+                      radius: 35,
 
-                    CircleAvatar(
-                        radius: 35,
-                        backgroundColor: Colors.white,
-                        child:Image.asset(images[index].assetName  )),
-                    SizedBox(height: 5,),
-                    Text(title[index],style: TextStyle(
-                        fontSize: 14,color: Colors.white
-                    ),),
 
-                  ],
-                ),
+                      backgroundColor: Colors.white,
+                      child:Image.asset(images[index].assetName  )),
+                  SizedBox(height: 5,),
+                  Text(title[index],style: TextStyle(
+                      fontSize: 14,color: Colors.white
+                  ),),
+
+                ],
               ),
-            );
+            ),
+          );
 
 
 
-          },
+        },
 
 
 
-        ),
       ),
     )
     ;

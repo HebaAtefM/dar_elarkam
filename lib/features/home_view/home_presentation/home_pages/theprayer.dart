@@ -6,42 +6,46 @@ class ThePrayer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      child: Stack(
 
-      children: [
-        Container(child: Image.asset("assets/images/backg3.png",fit: BoxFit.fill,height: 150,)),
-        GestureDetector(
-          onTap: (){},
-          child: Container(
-            width: 350,
-            height: 170,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
+        children: [
+          Container(child: Image.asset("assets/images/backg3.png",height: 100,
+            fit: BoxFit.fill,
+            width: double.infinity,)),
+          GestureDetector(
+            onTap: (){},
+            child: Container(
+              width: double.infinity,
+              height: 100,
+             // margin: EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
 
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              ),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+               // mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("صلاه الظهر",style: TextStyle(fontSize: 11,color: Color(0xff3E3E46)),),
-                        SizedBox(height: 2,),
-                        Text(" 12:10 مساء",style: TextStyle(fontSize: 19,color: Color(0xff3E3E46)),),
-                        SizedBox(height: 2,),
-                        Text("الصلاه القادمه العصر",style: TextStyle(fontSize: 11,color: Color(0xff3E3E46)),),
-                        SizedBox(height: 2,),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text("صلاه الظهر",style: TextStyle(fontSize: 11,color: Color(0xff3E3E46)),),
+                      SizedBox(height: .5,),
+
+                      Text(" 12:10 مساء",style: TextStyle(fontSize: 16,color: Color(0xff3E3E46)),),
+                      SizedBox(height: 1,),
+
+                      Text("الصلاه القادمه العصر",style: TextStyle(fontSize: 11,color: Color(0xff3E3E46)),),
+                      SizedBox(height: .5,),
 
 
-                        Text(" 3:30 مساء",style: TextStyle(fontSize: 19,color: Color(0xff3E3E46)),),
+                      Text(" 3:30 مساء",style: TextStyle(fontSize: 16,color: Color(0xff3E3E46)),),
 
-                      ],
-                    ),
+                    ],
                   ),
+                  SizedBox(width: 160,),
                   Image.asset("assets/images/mosque.png"),
 
 
@@ -49,8 +53,8 @@ class ThePrayer extends StatelessWidget {
               ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

@@ -26,28 +26,33 @@ class ListWorship extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    return               SizedBox(
-      height:   MediaQuery
-          .of(context)
-          .size
-          .height * .22,
-      child: ListView.builder(
-          itemCount: 3,
-          scrollDirection: Axis.horizontal,
-          shrinkWrap: true,
-          itemBuilder: (context,index) {
-            return Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: DailyWorshipBody(image: AssetImage(images[index].assetName),
-                text: title[index],
-                text2: subtitle[index],),
-            );
-          }
+    return               Stack(
+      children:[
+
+        SizedBox(
+        height:   MediaQuery
+            .of(context)
+            .size
+            .height * .22,
+        child: ListView.builder(
+            itemCount: 3,
+            scrollDirection: Axis.horizontal,
+            shrinkWrap: true,
+            itemBuilder: (context,index) {
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 3.0),
+                child: DailyWorshipBody(image: AssetImage(images[index].assetName),
+                  text: title[index],
+                  text2: subtitle[index],),
+              );
+            }
 
 
+        ),
       ),
+    ]
     );
-    ;
+
   }
 }
 

@@ -13,8 +13,10 @@ fontSize: 8,
 ),
 unselectedLabelStyle: TextStyle(color: Colors.black,fontSize: 8),
 unselectedIconTheme: IconThemeData(
-  color: Colors.blue
+  color: Colors.black
 ),
+selectedItemColor: Colors.blue,
+unselectedItemColor: Colors.black,
 showSelectedLabels: true,
 showUnselectedLabels: true
 )

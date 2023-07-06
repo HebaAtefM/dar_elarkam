@@ -17,11 +17,11 @@ class CustomlistView extends StatelessWidget {
    Widget build(BuildContext context) {
     return Stack(
       children:[
-        Image.asset(Assets.back),
+        Image.asset(Assets.back,height: 300,),
 
         Container(
           width: 414,
-          height: 365,
+          height: 380,
           decoration: BoxDecoration(
             color: Color(0xff6054FF).withOpacity(.6),
             borderRadius: BorderRadius.only(
@@ -33,14 +33,13 @@ class CustomlistView extends StatelessWidget {
           ),
           child: Column(
             children: [
-              SizedBox(height: 10,),
+              SizedBox(height: 20,),
               CustomAppBarHome(),
               SizedBox(height: 10,),
               CustomListView(),
 
               SizedBox(height: 10,),
               ListWorship(),
-              SizedBox(height: 5,),
 
 
 

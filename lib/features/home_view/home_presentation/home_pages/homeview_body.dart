@@ -16,18 +16,15 @@ class HomeViewBody extends StatelessWidget {
           child:Column(
             children: [
               CustomlistView(),
-              SizedBox(height: 5,),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TheLastRead(),
-              ),
-              SizedBox(height: 5,),
+              SizedBox(height: 10,),
+              TheLastRead(),
+              SizedBox(height: 3,),
 
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ThePrayer(),
-              ),
-              Padding(
+              ThePrayer(),
+              Padding
+
+
+                (
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
                   width: 350,
@@ -44,7 +41,10 @@ Text("العلم الشرعي",style: TextStyle(fontSize: 19,color: Color(0xff02
                   ),
                 ),
               GridVideo(),
+              SizedBox(height: 5,),
 
+
+//dropdown menu
 
 
 

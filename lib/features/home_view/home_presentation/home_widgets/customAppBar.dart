@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
-class CustomAppBarHome extends StatelessWidget {
+class CustomAppBarHome extends StatefulWidget {
   const CustomAppBarHome({Key? key}) : super(key: key);
 
+  @override
+  State<CustomAppBarHome> createState() => _CustomAppBarHomeState();
+}
+
+class _CustomAppBarHomeState extends State<CustomAppBarHome> {
   @override
   Widget build(BuildContext context) {
     return  Padding(
@@ -12,7 +17,22 @@ class CustomAppBarHome extends StatelessWidget {
     children:
     [
     //Drawer(),
-    GestureDetector(child: Image.asset("assets/images/menu.png")),
+    GestureDetector(
+      onTap: (){
+        setState(() {
+          Drawer(
+
+          );
+
+        });
+
+      },
+
+      child: Image.asset("assets/images/menu.png") ,
+    ),
+
+
+
     SizedBox(width: 90,),
 
 
