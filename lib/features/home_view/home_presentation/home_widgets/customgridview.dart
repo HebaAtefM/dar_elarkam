@@ -11,9 +11,8 @@ import 'package:myapp/features/home_view/home_presentation/home_widgets/list_wor
 import '../../../splash_view/presentation/widgets/custom_app_bar.dart';
 
 class CustomlistView extends StatelessWidget {
-  CustomlistView({Key? key,required this.drawercontroller}) : super(key: key);
+  CustomlistView({Key? key}) : super(key: key);
 
-  final drawercontroller;
 
    Widget build(BuildContext context) {
     return
@@ -36,7 +35,7 @@ class CustomlistView extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(height: 20,),
-                CustomAppBarHome(drawerkey: drawercontroller,),
+                CustomAppBarHome(),
                 SizedBox(height: 10,),
                 CustomListView(),
 

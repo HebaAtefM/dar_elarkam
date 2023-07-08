@@ -5,8 +5,7 @@ import 'package:myapp/features/home_view/home_presentation/home_pages/theprayer.
 import 'package:myapp/features/home_view/home_presentation/home_widgets/customgridview.dart';
 
 class HomeViewBody extends StatelessWidget {
-   HomeViewBody({Key? key,required this.drawerController}) : super(key: key);
-final drawerController;
+   HomeViewBody({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -15,7 +14,7 @@ final drawerController;
         child: Container(
           child:Column(
             children: [
-              CustomlistView(drawercontroller: drawerController,),
+              CustomlistView(),
               SizedBox(height: 10,),
               TheLastRead(),
               SizedBox(height: 3,),

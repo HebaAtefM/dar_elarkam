@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomAppBarHome extends StatefulWidget {
-   CustomAppBarHome({Key? key,required this.drawerkey}) : super(key: key);
-  final  drawerkey ;
+   CustomAppBarHome({Key? key}) : super(key: key);
 
   @override
   State<CustomAppBarHome> createState() => _CustomAppBarHomeState();
@@ -21,8 +20,7 @@ class _CustomAppBarHomeState extends State<CustomAppBarHome> {
     GestureDetector(
       onTap: (){
         setState(() {
-widget.drawerkey.enableOpenDragGesture;
-widget.drawerkey.isDrawerOpen;
+
 
         });
 

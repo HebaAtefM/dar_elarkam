@@ -20,7 +20,7 @@ class _HomeViewState extends State<HomeView> {
   GlobalKey<ScaffoldState>_scafoldState =GlobalKey<ScaffoldState>();
   int currentindex=0;
   List<Widget> screens=[
-    HomeViewBody(drawerController: DrawerController(child:Image.asset("assets/images/menu.png") , alignment: DrawerAlignment.start),),
+    HomeViewBody(),
     QuraanView(),
     TasksView(),
     DailyWorship()
@@ -45,7 +45,7 @@ void togle(){
 
         
 
-
+drawer: DrawerController(child:Image.asset("assets/images/menu.png") , alignment: DrawerAlignment.start),
 
 
        // backgroundColor: isshowmenu?Colors.grey:Colors.blue,
