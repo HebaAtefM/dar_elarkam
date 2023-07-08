@@ -16,9 +16,11 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+
+  GlobalKey<ScaffoldState>_scafoldState =GlobalKey<ScaffoldState>();
   int currentindex=0;
   List<Widget> screens=[
-    HomeViewBody(),
+    HomeViewBody(drawerController: DrawerController(child:Image.asset("assets/images/menu.png") , alignment: DrawerAlignment.start),),
     QuraanView(),
     TasksView(),
     DailyWorship()
@@ -32,9 +34,7 @@ void togle(){
 
   });
 }
-final _drawercontroller=
-DrawerController(child:Image.asset("assets/images/menu.png") , alignment: DrawerAlignment.start);
-GlobalKey<ScaffoldState>_scafoldState =GlobalKey<ScaffoldState>();
+
 
   @override
   Widget build(BuildContext context) {
@@ -42,17 +42,11 @@ GlobalKey<ScaffoldState>_scafoldState =GlobalKey<ScaffoldState>();
 
       textDirection: TextDirection.rtl,
       child: Scaffold(
-appBar:AppBar(
-  leading: IconButton(icon: Image.asset("assets/images/menu.png"),onPressed:(){
-    _scafoldState.currentState!.openDrawer();
-  },),
-) ,        
+
         
 
-        drawer:Drawer(
 
-         ) ,
-       endDrawerEnableOpenDragGesture: true,
+
 
        // backgroundColor: isshowmenu?Colors.grey:Colors.blue,
         floatingActionButtonLocation:FloatingActionButtonLocation.centerDocked,

@@ -11,43 +11,46 @@ import 'package:myapp/features/home_view/home_presentation/home_widgets/list_wor
 import '../../../splash_view/presentation/widgets/custom_app_bar.dart';
 
 class CustomlistView extends StatelessWidget {
-  CustomlistView({Key? key}) : super(key: key);
+  CustomlistView({Key? key,required this.drawercontroller}) : super(key: key);
 
+  final drawercontroller;
 
    Widget build(BuildContext context) {
-    return Stack(
-      children:[
-        Image.asset(Assets.back,height: 300,),
+    return
+    Stack(
+        children:[
+          Image.asset(Assets.back,height: 300,),
 
-        Container(
-          width: 414,
-          height: 380,
-          decoration: BoxDecoration(
-            color: Color(0xff6054FF).withOpacity(.6),
-            borderRadius: BorderRadius.only(
+          Container(
+            width: 414,
+            height: 380,
+            decoration: BoxDecoration(
+              color: Color(0xff6054FF).withOpacity(.6),
+              borderRadius: BorderRadius.only(
 
-                topLeft: Radius.zero,
-                topRight: Radius.zero,
-                bottomLeft:Radius.circular(30),bottomRight: Radius.circular(30) ),
+                  topLeft: Radius.zero,
+                  topRight: Radius.zero,
+                  bottomLeft:Radius.circular(30),bottomRight: Radius.circular(30) ),
+
+            ),
+            child: Column(
+              children: [
+                SizedBox(height: 20,),
+                CustomAppBarHome(drawerkey: drawercontroller,),
+                SizedBox(height: 10,),
+                CustomListView(),
+
+                SizedBox(height: 10,),
+                ListWorship(),
+
+
+
+              ],
+            ),
 
           ),
-          child: Column(
-            children: [
-              SizedBox(height: 20,),
-              CustomAppBarHome(),
-              SizedBox(height: 10,),
-              CustomListView(),
+      ]
 
-              SizedBox(height: 10,),
-              ListWorship(),
-
-
-
-            ],
-          ),
-
-        ),
-    ]
     );
   }
 }

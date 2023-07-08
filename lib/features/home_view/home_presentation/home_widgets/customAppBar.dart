@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CustomAppBarHome extends StatefulWidget {
-  const CustomAppBarHome({Key? key}) : super(key: key);
+   CustomAppBarHome({Key? key,required this.drawerkey}) : super(key: key);
+  final  drawerkey ;
 
   @override
   State<CustomAppBarHome> createState() => _CustomAppBarHomeState();
@@ -17,17 +18,18 @@ class _CustomAppBarHomeState extends State<CustomAppBarHome> {
     children:
     [
     //Drawer(),
-    // GestureDetector(
-    //   onTap: (){
-    //     setState(() {
-    //
-    //
-    //     });
-    //
-    //   },
-    //
-    //   child: Image.asset("assets/images/menu.png") ,
-    // ),
+    GestureDetector(
+      onTap: (){
+        setState(() {
+widget.drawerkey.enableOpenDragGesture;
+widget.drawerkey.isDrawerOpen;
+
+        });
+
+      },
+
+      child: Image.asset("assets/images/menu.png") ,
+    ),
 
 
 
