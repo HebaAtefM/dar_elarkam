@@ -25,6 +25,7 @@ class AlertBody extends StatelessWidget {
                   width: 28,
                   height: 28,
                   decoration: BoxDecoration(
+
                       color: Colors.black,),
                       // borderRadius: BorderRadius.only(topRight: Radius.circular(1),
                       //     topLeft: Radius.circular(1),bottomRight: Radius.circular(1),bottomLeft: Radius.circular(1))),
